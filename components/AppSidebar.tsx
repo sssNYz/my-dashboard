@@ -59,8 +59,8 @@ const AppSidebar = () => {
   return (
     <Sidebar collapsible='icon'>
 
-      {/**Content */}
-      <SidebarHeader>
+      {/**Header */}
+      <SidebarHeader className='py-3'>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
@@ -73,13 +73,18 @@ const AppSidebar = () => {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarSeparator />
+
+
       {/**Content */}
       <SidebarContent>
         {/**Content Group1*/}
         <SidebarGroup className=''>
+        {/**Label */}
           <SidebarGroupLabel>
-            Grooup1
+            Group1
           </SidebarGroupLabel>
+
+            <SidebarGroupContent>
           <SidebarMenu >
             {items.map((item) => (
               <SidebarMenuItem key={item.title}>
@@ -92,19 +97,20 @@ const AppSidebar = () => {
               </SidebarMenuItem>
             ))}
           </SidebarMenu>
-          <SidebarGroupContent>
 
           </SidebarGroupContent>
         </SidebarGroup>
+
+
         {/**Content Group2*/}
         <SidebarGroup>
           <SidebarGroupLabel>
-            Grooup2
+            Group2
           </SidebarGroupLabel>
         </SidebarGroup>
       </SidebarContent>
 
-      {/**Content */}
+      {/**Footer */}
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
