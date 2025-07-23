@@ -1,0 +1,43 @@
+image: node:22-alpine
+
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: install
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+
+# test:
+#   stage: test
+#   script:
+#     - npm run test
+
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+
+# Optional deploy job (e.g., for GitLab Pages or copy to server)
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying..."
+    # Example: scp -r dist/* user@yourserver:/var/www/html/
+  only:
+    - main
